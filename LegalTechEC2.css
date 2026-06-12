@@ -114,11 +114,11 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   SECCIÓN HERO (Inspirada en Estilo Topográfico Corporativo)
+   SECCIÓN HERO (Efecto de Curvas Fluidas y Paleta Corporativa Limpia)
    ========================================================================== */
 .hero-section {
     padding: 140px 0 80px 0;
-    background: radial-gradient(circle at 80% 20%, var(--primary-bright) 0%, var(--primary-deep) 100%);
+    background: linear-gradient(135deg, #001224 0%, #002347 60%, #003a70 100%);
     position: relative;
     overflow: hidden;
     color: var(--white);
@@ -128,9 +128,10 @@ nav a:hover {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0.04;
-    background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 0);
-    background-size: 24px 24px;
+    opacity: 0.22; /* Intensidad de las líneas orgánicas del fondo */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800' preserveAspectRatio='none'%3E%3Cpath d='M-100,700 C300,650 400,300 800,400 C1200,500 1100,100 1600,150' fill='none' stroke='%230056b3' stroke-width='1.5' stroke-opacity='0.4'/%3E%3Cpath d='M-50,600 C400,550 300,150 900,250 C1300,350 1200,50 1500,80' fill='none' stroke='%23007bff' stroke-width='1' stroke-opacity='0.2'/%3E%3Cpath d='M0,750 C500,600 200,400 700,500 C1200,600 1300,200 1600,300' fill='none' stroke='%23003a70' stroke-width='2' stroke-opacity='0.5'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
     pointer-events: none;
 }
 
@@ -221,7 +222,6 @@ nav a:hover {
     box-shadow: 0 8px 20px rgba(255,255,255,0.05);
 }
 
-/* Animación sutil de empuje en el icono indicador (↗) */
 .btn-secondary:hover span {
     transform: translate(2px, -2px);
     display: inline-block;
@@ -232,13 +232,15 @@ nav a:hover {
 .hero-image-box {
     flex: 0 0 380px;
     height: 440px;
-    border-radius: 4px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-radius: 12px; /* Esquinas suavizadas según el diseño de referencia */
+    box-shadow: 0 20px 45px rgba(0,0,0,0.35), 0 0 30px rgba(0, 86, 179, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.15);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 /* Ajuste específico para ocultar tu mano y mantener el cabello visible */
@@ -247,8 +249,8 @@ nav a:hover {
     height: 100%;
     object-fit: cover;
     object-position: center 0% !important;
-    transform: scale(1.1);          /* Hace un ligero zoom del 10% para ganar margen */
-    transform-origin: top center;    /* Fija el zoom arriba para ocultar la mano abajo */
+    transform: scale(1.1);
+    transform-origin: top center;
     display: block;
 }
 
@@ -279,7 +281,6 @@ nav a:hover {
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Círculos dinámicos con efecto pulso lumínico al pasar el cursor */
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -313,14 +314,12 @@ nav a:hover {
     gap: 10px;
 }
 
-/* Contenedor horizontal para alinear Logo y Título */
 .institucion-header {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* Estilo avanzado para logos corporativos de la línea de tiempo */
 .logo-timeline {
     height: 28px;
     width: 28px;
@@ -373,7 +372,6 @@ nav a:hover {
     background-color: var(--bg-light);
 }
 
-/* Caja de Oratoria Estilizada con Elevación */
 .oratoria-destacado {
     display: flex;
     gap: 0px;
@@ -426,7 +424,6 @@ nav a:hover {
     margin-bottom: 12px;
 }
 
-/* Cuadrícula de Tarjetas */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -576,7 +573,6 @@ nav a:hover {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Efecto de iluminación interactiva prémium al escribir */
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.08);
@@ -603,7 +599,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   PIE DE PÁGINA & CORRECCIONES DE ESTRUCTURA fijo
+   PIE DE PÁGINA & CORRECCIONES DE ESTRUCTURA 
    ========================================================================== */
 .footer-main {
     background: #000c17;
@@ -617,7 +613,6 @@ nav a:hover {
     font-size: 0.85rem;
 }
 
-/* Bloqueo absoluto de estiramiento del cuadro de consulta */
 textarea {
     resize: none; 
 }
