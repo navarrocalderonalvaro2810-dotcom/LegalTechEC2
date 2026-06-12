@@ -1,38 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const formulario = document.getElementById("formContacto");
-    const feedback = document.getElementById("feedbackMensaje");
-    const boton = document.getElementById("btnEnviar");
+    const btn = document.getElementById("btnEnviar");
+    const form = document.getElementById("formContacto");
+    const status = document.getElementById("status");
 
-    formulario.addEventListener("submit", function(evento) {
-        evento.preventDefault(); // ESTO ES LO QUE EVITA QUE TE BOTEN DE TU WEB
-        
-        boton.textContent = "Enviando...";
-        boton.disabled = true;
+    btn.addEventListener("click", function() {
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
 
-        const datos = new FormData(formulario);
+        btn.textContent = "Enviando...";
+        btn.disabled = true;
 
-        fetch(formulario.action, {
-            method: formulario.method,
-            body: datos,
+        const data = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: data,
             headers: { 'Accept': 'application/json' }
         })
         .then(response => {
             if (response.ok) {
-                feedback.textContent = "¡Gracias! Tu consulta ha sido enviada con éxito.";
-                feedback.style.color = "#2ecc71"; // Verde éxito
-                formulario.reset();
+                status.textContent = "✓ ¡Gracias! Tu consulta ha sido enviada con éxito.";
+                status.style.color = "#2ecc71";
+                form.reset();
             } else {
-                feedback.textContent = "Hubo un error al enviar. Inténtalo de nuevo.";
-                feedback.style.color = "#e74c3c"; // Rojo error
+                status.textContent = "Hubo un error al enviar.";
+                status.style.color = "#e74c3c";
             }
         })
-        .catch(() => {
-            feedback.textContent = "Error de conexión.";
-            feedback.style.color = "#e74c3c";
-        })
         .finally(() => {
-            boton.textContent = "Enviar Consulta";
-            boton.disabled = false;
+            btn.textContent = "Enviar Consulta";
+            btn.disabled = false;
         });
     });
 });

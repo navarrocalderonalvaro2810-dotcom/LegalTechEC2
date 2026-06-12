@@ -1,3 +1,8 @@
+Entiendo perfectamente, Álvaro. Quieres el archivo index.html completo, con toda la estructura de las secciones que ya tenías y con el formulario "blindado" para que no te redirija a la página de Formspree.
+
+Aquí tienes el archivo completo listo para copiar, guardar y subir:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +13,6 @@
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN -->
     <header class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">ANC</a>
@@ -21,7 +25,6 @@
         </div>
     </header>
 
-    <!-- SECCIÓN PERFIL -->
     <section id="perfil" class="hero-section">
         <div class="hero-container">
             <div class="hero-text">
@@ -42,7 +45,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN TRAYECTORIA -->
     <section id="trayectoria" class="seccion-blanca">
         <div class="container">
             <h2 class="titulo-seccion">Trayectoria Profesional</h2>
@@ -87,12 +89,23 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO -->
+    <section id="formacion" class="seccion-gris">
+        <div class="container">
+            <h2 class="titulo-seccion">Formación Académica</h2>
+            <div class="oratoria-destacado">
+                <div class="oratoria-img-box"><img src="tu_foto_oratoria.png" alt="Ponencia" class="oratoria-foto"></div>
+                <div class="oratoria-text">
+                    <h3>Participación en Eventos Académicos</h3>
+                    <p>Ponente y organizador activo en espacios de debate jurídico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contacto" class="seccion-contacto">
         <div class="container-contacto">
             <div class="contacto-info">
                 <h2>Contacto Profesional</h2>
-                <p>Para consultas en materia penal económica, litigios civiles o coordinación académica, puede comunicarse directamente.</p>
                 <ul class="datos-lista">
                     <li>📍 Lima, Perú</li>
                     <li>📞 +51 928 375 330</li>
@@ -100,34 +113,30 @@
                 </ul>
             </div>
             <div class="contacto-form-box">
-                <!-- FORMULARIO CON ID PARA CAPTURA JS -->
-                <form id="formContacto" action="https://formspree.io/f/xwvjrrag" method="POST">
+                <form id="formContacto" action="https://formspree.io/f/xwvjrrag" method="POST" onsubmit="return false;">
                     <div class="form-group">
-                        <label for="nombre">Nombre Completo</label>
+                        <label for="nombre">Nombre Completo o Razón Social</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
                     </div>
                     <div class="form-group">
-                        <label for="correo">Correo Electrónico</label>
-                        <input type="email" id="correo" name="email" placeholder="Ej. correo@empresa.com" required>
+                        <label for="email">Dirección de Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Ej. correo@empresa.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="mensaje">Detalle de la Consulta</label>
+                        <label for="mensaje">Detalle de la Consulta Jurídica</label>
                         <textarea id="mensaje" name="consulta" rows="4" placeholder="Escriba aquí los hechos..." required></textarea>
                     </div>
-                    <button type="submit" id="btnEnviar" class="btn-submit">Enviar consulta</button>
-                    
-                    <!-- Contenedor de feedback -->
-                    <div id="feedbackMensaje" style="margin-top: 15px; text-align: center;"></div>
+                    <button type="button" id="btnEnviar" class="btn-submit">Enviar Consulta</button>
+                    <div id="status" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
                 </form>
             </div>
         </div>
     </section>
 
     <footer class="footer-main">
-        <p>© 2026 Alvaro Gianpieer Navarro Calderón. Todos los derechos reservados. Portafolio Académico Profesional.</p>
+        <p>© 2026 Alvaro Gianpieer Navarro Calderón. Portafolio Académico Profesional.</p>
     </footer>
 
-    <!-- JS AL FINAL PARA ASEGURAR CARGA -->
     <script src="LegalTechEC2.js"></script>
 </body>
 </html>
