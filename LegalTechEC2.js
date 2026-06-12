@@ -1,38 +1,38 @@
 document.addEventListener("DOMContentLoaded", function() {
     const formulario = document.getElementById("formContacto");
-    const botonEnviar = document.getElementById("btnEnviar");
-    const respuestaFeedback = document.getElementById("feedbackMensaje");
+    const feedback = document.getElementById("feedbackMensaje");
+    const boton = document.getElementById("btnEnviar");
 
-    if (formulario) {
-        formulario.addEventListener("submit", async function(evento) {
-            evento.preventDefault(); // Esto detiene la recarga de forma radical
-            
-            botonEnviar.textContent = "Procesando...";
-            botonEnviar.disabled = true;
+    formulario.addEventListener("submit", function(evento) {
+        evento.preventDefault(); // ESTO ES LO QUE EVITA QUE TE BOTEN DE TU WEB
+        
+        boton.textContent = "Enviando...";
+        boton.disabled = true;
 
-            try {
-                const formData = new FormData(formulario);
-                const response = await fetch(formulario.action, {
-                    method: formulario.method,
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
+        const datos = new FormData(formulario);
 
-                if (response.ok) {
-                    respuestaFeedback.textContent = "¡Mensaje enviado con éxito!";
-                    respuestaFeedback.className = "msg-exito"; // Asegúrate de tener esta clase en tu CSS
-                    formulario.reset();
-                } else {
-                    respuestaFeedback.textContent = "Error al enviar. Intente de nuevo.";
-                    respuestaFeedback.className = "msg-error";
-                }
-            } catch (error) {
-                respuestaFeedback.textContent = "Error de conexión.";
-                respuestaFeedback.className = "msg-error";
-            } finally {
-                botonEnviar.textContent = "Enviar Mensaje Institucional";
-                botonEnviar.disabled = false;
+        fetch(formulario.action, {
+            method: formulario.method,
+            body: datos,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                feedback.textContent = "¡Gracias! Tu consulta ha sido enviada con éxito.";
+                feedback.style.color = "#2ecc71"; // Verde éxito
+                formulario.reset();
+            } else {
+                feedback.textContent = "Hubo un error al enviar. Inténtalo de nuevo.";
+                feedback.style.color = "#e74c3c"; // Rojo error
             }
+        })
+        .catch(() => {
+            feedback.textContent = "Error de conexión.";
+            feedback.style.color = "#e74c3c";
+        })
+        .finally(() => {
+            boton.textContent = "Enviar Consulta";
+            boton.disabled = false;
         });
-    }
+    });
 });
