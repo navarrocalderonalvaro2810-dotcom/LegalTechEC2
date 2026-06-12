@@ -87,7 +87,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO (Formulario optimizado) -->
+    <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="seccion-contacto">
         <div class="container-contacto">
             <div class="contacto-info">
@@ -100,7 +100,8 @@
                 </ul>
             </div>
             <div class="contacto-form-box">
-                <form id="contact-form" action="https://formspree.io/f/xwvjrrag" method="POST">
+                <!-- FORMULARIO CON ID PARA CAPTURA JS -->
+                <form id="formContacto" action="https://formspree.io/f/xwvjrrag" method="POST">
                     <div class="form-group">
                         <label for="nombre">Nombre Completo</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
@@ -110,17 +111,23 @@
                         <input type="email" id="correo" name="email" placeholder="Ej. correo@empresa.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="consulta">Detalle de la Consulta</label>
-                        <textarea id="consulta" name="consulta" rows="4" placeholder="Escriba aquí los hechos..." required></textarea>
+                        <label for="mensaje">Detalle de la Consulta</label>
+                        <textarea id="mensaje" name="consulta" rows="4" placeholder="Escriba aquí los hechos..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Enviar Consulta</button>
-                    <div id="form-status" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
+                    <button type="submit" id="btnEnviar" class="btn-submit">Enviar consulta</button>
+                    
+                    <!-- Contenedor de feedback -->
+                    <div id="feedbackMensaje" style="margin-top: 15px; text-align: center;"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- JS AL FINAL -->
+    <footer class="footer-main">
+        <p>© 2026 Alvaro Gianpieer Navarro Calderón. Todos los derechos reservados. Portafolio Académico Profesional.</p>
+    </footer>
+
+    <!-- JS AL FINAL PARA ASEGURAR CARGA -->
     <script src="LegalTechEC2.js"></script>
 </body>
 </html>
