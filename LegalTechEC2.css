@@ -1,0 +1,636 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-deep: #002347;     /* Azul Institucional Corporativo */
+    --primary-bright: #003a70;   /* Azul de Realce */
+    --accent-blue: #0056b3;      /* Azul interactivo premium */
+    --accent-bright: #007bff;    /* Brillo para estados activos */
+    --bg-light: #f4f6f9;         /* Fondo Gris Claro Premium */
+    --text-dark: #1e293b;        /* Texto Principal */
+    --text-muted: #64748b;       /* Texto Secundario */
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* --- TÍTULOS CORPORATIVOS --- */
+h1, h2, h3, .logo {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-deep);
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.titulo-seccion::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-bright);
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN (Efecto Cristal Flotante + Transiciones Suaves)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 35, 71, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+.btn-contacto-nav {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-contacto-nav:hover {
+    background: var(--white);
+    color: var(--primary-deep) !important;
+    border-color: var(--white);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   SECCIÓN HERO (Inspirada en Estilo Topográfico Corporativo)
+   ========================================================================== */
+.hero-section {
+    padding: 140px 0 80px 0;
+    background: radial-gradient(circle at 80% 20%, var(--primary-bright) 0%, var(--primary-deep) 100%);
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.04;
+    background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.descripcion {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.cta-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--primary-deep);
+}
+
+.btn-primary:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+}
+
+/* Animación sutil de empuje en el icono indicador (↗) */
+.btn-secondary:hover span {
+    transform: translate(2px, -2px);
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+/* Marco de Foto de Perfil Corporativo Principal */
+.hero-image-box {
+    flex: 0 0 380px;
+    height: 440px;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajuste específico para ocultar tu mano y mantener el cabello visible */
+.perfil-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 0% !important;
+    transform: scale(1.1);          /* Hace un ligero zoom del 10% para ganar margen */
+    transform-origin: top center;    /* Fija el zoom arriba para ocultar la mano abajo */
+    display: block;
+}
+
+/* ==========================================================================
+   SECCIÓN TRAYECTORIA (Línea de Tiempo Dinámica + Enfoque Lumínico)
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.seccion-blanca {
+    background-color: var(--white);
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto 0 auto;
+    padding-left: 30px;
+    border-left: 2px solid #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Círculos dinámicos con efecto pulso lumínico al pasar el cursor */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-bright);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 4px rgba(0, 58, 112, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.timeline-item:hover {
+    transform: translateX(6px);
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.3);
+    background: var(--accent-bright);
+    box-shadow: 0 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.time-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Contenedor horizontal para alinear Logo y Título */
+.institucion-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Estilo avanzado para logos corporativos de la línea de tiempo */
+.logo-timeline {
+    height: 28px;
+    width: 28px;
+    object-fit: contain;
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: 2px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.institucion-header h3 {
+    font-size: 1.25rem;
+    color: var(--primary-deep);
+}
+
+.fecha {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.institucion-sub {
+    font-weight: 600;
+    color: var(--primary-bright);
+    font-size: 1rem;
+    margin-bottom: 8px;
+    padding-left: 40px; 
+}
+
+.time-content {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    padding-left: 40px; 
+}
+
+.link-institucion {
+    text-decoration: none;
+    color: inherit; 
+    transition: color 0.2s ease;
+}
+
+.link-institucion:hover {
+    color: var(--accent-blue); 
+}
+
+/* ==========================================================================
+   SECCIÓN FORMACIÓN (Efecto Flotación Elevada)
+   ========================================================================== */
+.seccion-gris {
+    background-color: var(--bg-light);
+}
+
+/* Caja de Oratoria Estilizada con Elevación */
+.oratoria-destacado {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+    min-height: 340px; 
+}
+
+.oratoria-destacado:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+.oratoria-img-box {
+    flex: 0 0 320px !important;     
+    height: 340px !important;        
+    overflow: hidden !important;     
+    display: flex;
+    align-items: center;
+    background: var(--white);
+}
+
+.oratoria-foto {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;               
+    transform: scale(1.15);          
+    transform-origin: center 100% !important; 
+    display: block;
+}
+
+.oratoria-text {
+    flex: 1;
+    padding: 30px 40px;              
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.oratoria-text h3 {
+    color: var(--primary-deep);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+/* Cuadrícula de Tarjetas */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0,35,71,0.08);
+    border-color: rgba(0, 35, 71, 0.15);
+}
+
+.card-header-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-circular {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--primary-deep);
+    margin-bottom: 6px;
+}
+
+.institucion-card {
+    font-size: 0.9rem;
+    color: var(--primary-bright);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.link-litigio {
+    color: var(--primary-deep);
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    margin-top: 8px;
+    transition: color 0.2s ease;
+}
+
+.link-litigio:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO (Inputs Reactivos Estilo Enfoque)
+   ========================================================================== */
+.seccion-contacto {
+    background: linear-gradient(135deg, var(--primary-deep) 0%, #001224 100%);
+    color: var(--white);
+    padding: 90px 0;
+    position: relative;
+}
+
+.container-contacto {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 50px;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.contacto-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.contacto-info p {
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.datos-lista {
+    list-style: none;
+}
+
+.datos-lista li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contacto-form-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efecto de iluminación interactiva prémium al escribir */
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-bright);
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.4);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--white);
+    color: var(--primary-deep);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA & CORRECCIONES DE ESTRUCTURA fijo
+   ========================================================================== */
+.footer-main {
+    background: #000c17;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-main p {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+}
+
+/* Bloqueo absoluto de estiramiento del cuadro de consulta */
+textarea {
+    resize: none; 
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .hero-container { flex-direction: column; text-align: center; }
+    .cta-group { justify-content: center; }
+    .grid-cards { grid-template-columns: 1fr; }
+    .container-contacto { grid-template-columns: 1fr; }
+    .oratoria-destacado { flex-direction: column; }
+    .institucion-header { justify-content: center; }
+    .institucion-sub, .time-content { padding-left: 0; text-align: center; }
+    .timeline { padding-left: 0; border-left: none; }
+    .timeline-item::before { display: none; }
+}
